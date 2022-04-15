@@ -1,0 +1,7 @@
+01.Wrire in VSC terminal:
+npm init -y
+npm install mocha
+npm install chai
+
+02.To test /write in terminal/: 
+npm test 

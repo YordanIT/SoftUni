@@ -16,8 +16,8 @@ function solve() {
     const fighter = (name) => {
         let state = {
             name,
-            health = 100,
-            stamina = 100
+            health: 100,
+            stamina: 100
         }
         return Object.assign(state, canFight(state));
     }
@@ -25,8 +25,8 @@ function solve() {
     const mage = (name) => {
         let state = {
             name,
-            health = 100,
-            mana = 100
+            health: 100,
+            mana: 100
         }
         return Object.assign(state, canCast(state));
     }

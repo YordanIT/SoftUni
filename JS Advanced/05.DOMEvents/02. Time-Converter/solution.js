@@ -1,39 +1,42 @@
 function attachEventsListeners() {
-    let secondsInput = document.getElementById('seconds');
-    let minutesInput = document.getElementById('minutes');
-    let hoursInput = document.getElementById('hours');
-    let daysInput = document.getElementById('days');
-
-    let secondsBtn = document.getElementById('secondsBtn');
-    let minutesBtn = document.getElementById('minutesBtn');
-    let hoursBtn = document.getElementById('hoursBtn');
     let daysBtn = document.getElementById('daysBtn');
+    daysBtn.addEventListener('click', convert)
+    let hoursBtn = document.getElementById('hoursBtn');
+    hoursBtn.addEventListener('click', convert)
+    let minutesBtn = document.getElementById('minutesBtn');
+    minutesBtn.addEventListener('click', convert)
+    let secondsBtn = document.getElementById('secondsBtn');
+    secondsBtn.addEventListener('click', convert)
 
-    secondsBtn.addEventListener('click', () => {
-        secondsInput = Number(secondsInput.value);
-        minutesInput.value = secondsInput / 60;
-        hoursInput.value = secondsInput / 60 / 60;
-        daysInput.value = secondsInput / 60 / 60 / 24;
-    })
+    let time = {
+        days: 1,
+        hours: 24,
+        minute: 1440,
+        seconds: 86400
+    };
 
-    minutesBtn.addEventListener('click', () => {
-        minutesInput = Number(minutesInput.value);
-        secondsInput.value = minutesInput * 60;
-        hoursInput.value = minutesInput / 60;
-        daysInput.value = minutesInput / 60 / 24;
-    })
-
-    hoursBtn.addEventListener('click', () => {
-        hoursInput = Number(hoursInput.value);
-        minutesInput.value = hoursInput * 60;
-        secondsInput.value = hoursInput * 60 * 60;
-        daysInput.value = hoursInput / 24;
-    })
-
-    daysBtn.addEventListener('click', () => {
-        daysInput = Number(daysInput.value);
-        hoursInput.value = daysInput * 24;
-        minutesInput.value = daysInput * 24 * 60;
-        secondsInput.value = daysInput * 24 * 60 * 60;
-    })
+    function convert(e){
+        let parent = e.target.parentElement;
+        let input = parent.children[1].value;
+        let inputId = parent.children[1].id;
+        
+        if (inputId === 'days') {
+            input /= time.days;
+        } else if (inputId === 'hours') {
+            input /= time.hours;
+        }else if (inputId === 'minutes') {
+            input /= time.minute;
+        }else if (inputId === 'seconds') {
+            input /= time.seconds;
+        }
+       
+        let days = document.getElementById('days');
+        days.value = input*time.days;
+        let hours = document.getElementById('hours');
+        hours.value = input*time.hours;
+        let minutes = document.getElementById('minutes');
+        minutes.value = input*time.minute;
+        let seconds = document.getElementById('seconds');
+        seconds.value = input*time.seconds;
+    }
 }

@@ -15,28 +15,28 @@ function attachEventsListeners() {
         seconds: 86400
     };
 
-    function convert(e){
+    function convert(e) {
         let parent = e.target.parentElement;
         let input = parent.children[1].value;
         let inputId = parent.children[1].id;
-        
+
         if (inputId === 'days') {
             input /= time.days;
         } else if (inputId === 'hours') {
             input /= time.hours;
-        }else if (inputId === 'minutes') {
+        } else if (inputId === 'minutes') {
             input /= time.minute;
-        }else if (inputId === 'seconds') {
+        } else if (inputId === 'seconds') {
             input /= time.seconds;
         }
-       
+
         let days = document.getElementById('days');
-        days.value = input*time.days;
+        days.value = input * time.days;
         let hours = document.getElementById('hours');
-        hours.value = input*time.hours;
+        hours.value = input * time.hours;
         let minutes = document.getElementById('minutes');
-        minutes.value = input*time.minute;
+        minutes.value = input * time.minute;
         let seconds = document.getElementById('seconds');
-        seconds.value = input*time.seconds;
+        seconds.value = input * time.seconds;
     }
 }

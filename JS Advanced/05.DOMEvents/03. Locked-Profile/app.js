@@ -1,5 +1,4 @@
 function lockedProfile() {
-    let profiles = document.querySelectorAll('#main .profile');
     let buttons = document.querySelectorAll('#main .profile button');
 
     for (let index = 0; index < buttons.length; index++) {

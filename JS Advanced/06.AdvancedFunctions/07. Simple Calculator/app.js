@@ -1,17 +1,23 @@
 function calculator() {
-    let numOne = document.getElementById('num1');
-    let numTwo = document.getElementById('num2');
-    let sumBtn = document.getElementById('sumButton');
-    let subtractBtn = document.getElementById('subtractButton');
-    let result = document.getElementById('result');
+    let section1 = null;
+    let section2 = null;
+    let result = null;
 
-    sumBtn.addEventListener('click', () => {
-        return result.value = 
-        Number(numOne.value) + Number(numTwo.value);
-    })
+    return {
+        init,
+        add,
+        subtract
+    }
 
-    subtractBtn.addEventListener('click', () => {
-        return result.value = 
-        Number(numOne.value) - Number(numTwo.value);
-    })
+    function init(sec1, sec2, result) {
+        section1 = document.querySelector(sec1);
+        section2 = document.querySelector(sec2);
+        result = document.querySelector(result);
+    }
+    function add() {
+        result.value = Number(section1.value) + Number(section2.value)
+    }
+    function subtract() {
+        result.value = Number(section1.value) - Number(section2.value)
+    }
 }

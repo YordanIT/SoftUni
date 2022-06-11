@@ -7,7 +7,7 @@ describe('Test find char at given index', () => {
         assert.equal(undefined, charLookUp(undefined, 5));
     })
 
-    it('Should return undefined when test NaN undex', () => {
+    it('Should return undefined when test NaN index', () => {
         assert.equal(undefined, charLookUp('cat', 'index'));
     })
 

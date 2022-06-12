@@ -6,10 +6,12 @@ namespace AquaShop.Repositories.Contracts
     public class DecorationRepository : IRepository<IDecoration>
     {
         private List<IDecoration> decorations;
+        
         public DecorationRepository()
         {
             decorations = new List<IDecoration>();
         }
+        
         public IReadOnlyCollection<IDecoration> Models => decorations;
 
         public void Add(IDecoration model)

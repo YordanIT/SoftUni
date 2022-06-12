@@ -54,16 +54,16 @@ describe('mathEnforcer', function () {
         it('Should return correct result with a non-number parameters', function () {
             assert.equal(undefined, mathEnforcer.sum('test', 'test'))
         })
-        it('Should return correct result with first non-number parameters', function () {
+        it('Should return correct result with first non-number parameter', function () {
             assert.equal(undefined, mathEnforcer.sum('test', 5))
         })
-        it('Should return correct result with second non-number parameters', function () {
+        it('Should return correct result with second non-number parameter', function () {
             assert.equal(undefined, mathEnforcer.sum(5, 'test'))
         })
         it('Should sum numbers with number parameters', function () {
             assert.equal(2, mathEnforcer.sum(1, 1))
         })
-        it('Should sum numbers with floating-point parameter', function () {
+        it('Should sum numbers with floating-point parameters', function () {
             assert.equal(3, mathEnforcer.sum(1.5, 1.5))
         })
         it('Should sum numbers with negative parameters', function () {

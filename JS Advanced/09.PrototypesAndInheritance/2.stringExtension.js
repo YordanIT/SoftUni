@@ -1,37 +1,47 @@
-function solve() {
-    String.prototype.ensureStart(str) = function () {
+(function solve() {
+    String.prototype.ensureStart = function (str) {
         if (this.startsWith(str)) {
-            return this
+            return this.toString()
         }
-        return str + this
+        return str + this.toString()
     }
 
-    String.prototype.ensureEnd(str) = function () {
+    String.prototype.ensureEnd = function (str) {
         if (this.endsWith(str)) {
-            return this
+            return this.toString()
         }
-        return this + str
+        return this.toString() + str
     }
 
-    String.prototype.isEmpty() = function () {
-        if (this === '') {
-            return true
+    String.prototype.isEmpty = function () {
+        return this.length === 0
+    }
+
+    String.prototype.truncate = function (n) {
+        if (n < 4) {
+            return '.'.repeat(n)
         }
-        return false
-    }
 
-    String.prototype.truncate(n) = function () {
-        let arr = this.split(' '); 
+        if (this.toString().length <= n) {
+            return this.toString()
+        } else {
+            let lastIndex = this.substring(0, n - 2).lastIndexOf(' ');
 
-        if (n >= this.length) {
-            return this
+            if (lastIndex !== -1) {
+                return this.substring(0, lastIndex) + '...'
+            } else {
+                return this.substring(0, n - 3) + '...'
+            }
         }
-        //to do
     }
 
-    String.format(string, ...params)  = function () {
-        //to do
-        
-    }
-}
+    String.format = function (string, ...params) {
+        let str = string;
 
+        params.forEach((e, i) => {
+            str = str.replace(`{${i}}`, e)
+        })
+
+        return str
+    }
+})()
